@@ -1,0 +1,25 @@
+
+/var/www/quiz/node_modules/sqlite3/lib/trace.js:28
+                    throw err;
+                          ^
+TypeError: Object [object Object] has no method 'succes'
+    at null.<anonymous> (/var/www/quiz/models/models.js:14:15)
+    at EventEmitter.emit (events.js:98:17)
+    at module.exports.CustomEventEmitter.emit (/var/www/quiz/node_modules/sequelize/lib/emitters/custom-event-emitter.js:61:33)
+    at module.exports.finish (/var/www/quiz/node_modules/sequelize/lib/query-chainer.js:142:30)
+    at exec (/var/www/quiz/node_modules/sequelize/lib/query-chainer.js:96:16)
+    at onSuccess (/var/www/quiz/node_modules/sequelize/lib/query-chainer.js:65:11)
+    at null.<anonymous> (/var/www/quiz/node_modules/sequelize/lib/query-chainer.js:90:15)
+    at EventEmitter.emit (events.js:95:17)
+    at module.exports.CustomEventEmitter.emit (/var/www/quiz/node_modules/sequelize/lib/emitters/custom-event-emitter.js:61:33)
+    at null.<anonymous> (/var/www/quiz/node_modules/sequelize/lib/dao-factory.js:313:41)
+--> in Database#all('CREATE TABLE IF NOT EXISTS `Quizzes` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `pregunta` VARCHAR(255), `respuesta` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL);', [Function])
+    at executeSql (/var/www/quiz/node_modules/sequelize/lib/dialects/sqlite/query.js:43:54)
+    at Database.<anonymous> (/var/www/quiz/node_modules/sequelize/lib/dialects/sqlite/query.js:67:11)
+    at module.exports.Query.run (/var/www/quiz/node_modules/sequelize/lib/dialects/sqlite/query.js:34:19)
+    at module.exports.ConnectorManager.query (/var/www/quiz/node_modules/sequelize/lib/dialects/sqlite/connector-manager.js:44:70)
+    at TransactionManager.query (/var/www/quiz/node_modules/sequelize/lib/transaction-manager.js:52:49)
+    at module.exports.Sequelize.query (/var/www/quiz/node_modules/sequelize/lib/sequelize.js:330:36)
+    at null.<anonymous> (/var/www/quiz/node_modules/sequelize/lib/query-interface.js:964:40)
+    at null.<anonymous> (/var/www/quiz/node_modules/sequelize/lib/emitters/custom-event-emitter.js:24:18)
+    at processImmediate [as _immediateCallback] (timers.js:330:15)
