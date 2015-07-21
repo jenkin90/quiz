@@ -35,3 +35,6 @@ nav,span{
 a {
   color: #00B7FF;
 }
+table {
+	margin: 0px auto 0px auto;
+}
