@@ -22,7 +22,8 @@ exports.index=function(req,res){
 
 	if(typeof req.query.search!=="undefined"){
 		busca="%"+req.query.search.replace(/\s/gi,'%')+"%";
-		filtro={where: ["pregunta like ?",busca]};
+		buscaCategoria="%"+req.query.categoria+"%";
+		filtro={where: ["pregunta like ? and categoria like ?",busca,buscaCategoria]};
 	}
 	models.Quiz.findAll(filtro).then(function(quizes){
 	res.render('quizes/index.ejs',{quizes:quizes,errors: []});
@@ -54,13 +55,14 @@ exports.new=function(req,res){
 };
 exports.create=function(req,res){
 	var quiz=models.Quiz.build(req.body.quiz);
+console.log(req.body.quiz);
 	quiz.validate().then(
 		function(err){
 			if(err){
 				res.render('quizes/new',{quiz: quiz,errors: err.errors});
 			}else{
 				
-			quiz.save({fields: ["pregunta","respuesta"]}).then(function(){
+			quiz.save({fields: ["pregunta","respuesta","categoria"]}).then(function(){
 			res.redirect('/quizes');
 			});
 			}
@@ -76,6 +78,7 @@ exports.edit=function(req,res){
 exports.update=function(req,res){
 	req.quiz.pregunta=req.body.quiz.pregunta;
 	req.quiz.respuesta=req.body.quiz.respuesta;
+	req.quiz.categoria=req.body.quiz.categoria;
 
 	req.quiz.validate().then(
 		function(err){
@@ -86,7 +89,7 @@ exports.update=function(req,res){
 					});
 			}else{
 				req.quiz.save(
-					{fields: ["pregunta","respuesta"]}
+					{fields: ["pregunta","respuesta","categoria"]}
 				).then(
 					function(){
 						res.redirect('/quizes');

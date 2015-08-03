@@ -7,6 +7,9 @@
 		<td>
 			<a href="/quizes/<%= quizes[i].id %>">
 				<%= quizes[i].pregunta %>
+				(
+				<%= quizes[i].categoria %>
+				)
 			</a>
 		</td>
 		<td>
@@ -33,7 +36,15 @@
 <br><br>
 
 <form name="datos" action="/quizes">
-<label>Filtro: <input type="text" name="search" /></label>
+<label>Filtro: <input type="text" name="search" />
+<select name="categoria">
+	<option value="Otro">Otro</option>
+	<option value="Humanidades">Humanidades</option>
+	<option value="Ocio">Ocio</option>
+	<option value="Ciencia">Ciencia</option>
+	<option value="Tecnología">Tecnología</option>
+</select>
+</label>
 <input type="submit">
 </form>	
 

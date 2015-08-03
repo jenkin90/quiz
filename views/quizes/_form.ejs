@@ -2,5 +2,36 @@
 <input type="text" id="preg" name="quiz[pregunta]" value="<%= quiz.pregunta %>" /><p>
 <label for="resp" class="rem">Respueta: </label>
 <input type="text" id="resp" name="quiz[respuesta]" value="<%= quiz.respuesta %>" /> <p>
+<label for="categoria" cass="rem">Categoría: </label>
+
+<%
+	var categoria=quiz.categoria;
+	var seleccionado=false;
+	var txtSeleccionado="";
+%>
+
+<select name="quiz[categoria]">
+<% if (seleccionado==false && categoria=="Otro") {txtSeleccionado="SELECTED";seleccionado=true;}%>
+	<option	value="Otro" <%=txtSeleccionado%>>Otro</value>
+<% txtSeleccionado="";%>
+<% if (seleccionado==false && categoria=="Humanidades") {txtSeleccionado="SELECTED";seleccionado=true;}%>
+	<option value="Humanidades" <%=txtSeleccionado%>>Humanidades</option>
+<% txtSeleccionado="";%>
+
+<% if (seleccionado==false && categoria=="Ocio") {txtSeleccionado="SELECTED";seleccionado=true;}%>
+	<option value="Ocio" <%=txtSeleccionado%>>Ocio</option>
+<% txtSeleccionado="";%>
+<% if (seleccionado==false && categoria=="Ciencia") {txtSeleccionado="SELECTED";seleccionado=true;}%>
+	<option value="Ciencia" <%=txtSeleccionado%>>Ciencia</option>
+<% txtSeleccionado="";%>
+<% if (seleccionado==false && categoria=="Tecnología") {txtSeleccionado="SELECTED";seleccionado=true;}%>
+	<option value="Tecnología" <%=txtSeleccionado%>>Tecnología</option>
+<% txtSeleccionado="";%>
+<% if (seleccionado==false) txtSeleccionado="SELECTED"%>
+	<option <%=txtSeleccionado%>> </option>
+</select>
+<br />
 <a href="/quizes"><button type="button">Cancelar</button></a>
+
 <input type="submit" value="Salvar">
+
