@@ -36,6 +36,19 @@ app.use(function(req,res,next){
 	next();
 });
 
+app.use(function(req,res,next){
+	var now=new Date().getTime();
+	if(req.session.user && !req.path.match(/\/logout/)){
+		if((now-req.session.lastAccess>120000)){
+			console.log("Saliendo...");
+			res.redirect('/logout');
+		}
+	}
+	
+	req.session.lastAccess=new Date().getTime();
+	next();
+});
+
 app.use('/', routes);
 
 /// catch 404 and forwarding to error handler
