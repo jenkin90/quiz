@@ -1,0 +1,51 @@
+20:44:08 web.1  | started with pid 28854
+20:44:09 web.1  | Wed, 12 Aug 2015 18:44:09 GMT express-session deprecated undefined resave option; provide resave option at app.js:28:9
+20:44:09 web.1  | Wed, 12 Aug 2015 18:44:09 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at app.js:28:9
+20:44:09 web.1  | Wed, 12 Aug 2015 18:44:09 GMT express-session deprecated req.secret; provide secret option at app.js:28:9
+20:44:09 web.1  | Executing (default): CREATE TABLE IF NOT EXISTS `Quizzes` (`id` INTEGER PRIMARY KEY, `pregunta` VARCHAR(255), `respuesta` VARCHAR(255), `categoria` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL);
+20:44:09 web.1  | Executing (default): PRAGMA INDEX_LIST(`Quizzes`)
+20:44:09 web.1  | Executing (default): CREATE TABLE IF NOT EXISTS `Comments` (`id` INTEGER PRIMARY KEY, `texto` VARCHAR(255), `publicado` TINYINT(1) DEFAULT 0, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `QuizId` INTEGER REFERENCES `Quizzes` (`id`) ON DELETE SET NULL ON UPDATE CASCADE);
+20:44:09 web.1  | Executing (default): PRAGMA INDEX_LIST(`Comments`)
+20:44:09 web.1  | Executing (default): SELECT count(*) AS `count` FROM `Quizzes` AS `Quiz`;
+20:44:09 web.1  | Executing (default): INSERT INTO `Quizzes` (`pregunta`,`respuesta`,`categoria`,`createdAt`,`updatedAt`) VALUES ('Capital de Italia','Roma','Humanidades','2015-08-12 18:44:09.000 +00:00','2015-08-12 18:44:09.000 +00:00');
+20:44:09 web.1  | Executing (default): INSERT INTO `Quizzes` (`pregunta`,`respuesta`,`categoria`,`createdAt`,`updatedAt`) VALUES ('Capital de Portugal','Lisboa','Humanidades','2015-08-12 18:44:09.000 +00:00','2015-08-12 18:44:09.000 +00:00');
+20:44:09 web.1  | Base de datos inicializada
+20:44:11 web.1  | {}
+20:44:11 web.1  | Executing (default): SELECT count(*) AS `count` FROM `Quizzes` AS `Quiz`;
+20:44:11 web.1  | Executing (default): SELECT count(*) AS `count` FROM `Comments` AS `Comment`;
+20:44:11 web.1  | [90mGET /quizes/statistics [36m304 [90m92ms[0m
+20:44:11 web.1  | Possibly unhandled ReferenceError: comentariosTotales is not defined
+20:44:11 web.1  |     at /var/www/quiz/controllers/statistics_controller.js:21:16
+20:44:11 web.1  |     at tryCatch1 (/var/www/quiz/node_modules/sequelize/node_modules/bluebird/js/main/util.js:45:21)
+20:44:11 web.1  |     at Promise$_callHandler [as _callHandler] (/var/www/quiz/node_modules/sequelize/node_modules/bluebird/js/main/promise.js:660:13)
+20:44:11 web.1  |     at Promise$_settlePromiseFromHandler [as _settlePromiseFromHandler] (/var/www/quiz/node_modules/sequelize/node_modules/bluebird/js/main/promise.js:675:18)
+20:44:11 web.1  |     at Promise$_settlePromiseAt (/var/www/quiz/node_modules/sequelize/node_modules/bluebird/js/main/promise.js:845:14)
+20:44:11 web.1  |     at Promise._settlePromiseAt (/var/www/quiz/node_modules/sequelize/lib/promise.js:66:18)
+20:44:11 web.1  |     at Promise$_settlePromises [as _settlePromises] (/var/www/quiz/node_modules/sequelize/node_modules/bluebird/js/main/promise.js:988:14)
+20:44:11 web.1  |     at Async$_consumeFunctionBuffer [as _consumeFunctionBuffer] (/var/www/quiz/node_modules/sequelize/node_modules/bluebird/js/main/async.js:77:12)
+20:44:11 web.1  |     at Async$consumeFunctionBuffer (/var/www/quiz/node_modules/sequelize/node_modules/bluebird/js/main/async.js:40:14)
+20:44:11 web.1  |     at process._tickCallback (node.js:415:13)
+20:44:11 web.1  | [90mGET /stylesheets/style.css [36m304 [90m15ms[0m
+20:44:11 web.1  | [90mGET /stylesheets/wide.css [36m304 [90m11ms[0m
+20:44:11 web.1  | [90mGET /stylesheets/smartphone.css [36m304 [90m11ms[0m
+20:44:13 web.1  | {}
+20:44:13 web.1  | Executing (default): SELECT count(*) AS `count` FROM `Quizzes` AS `Quiz`;
+20:44:13 web.1  | Executing (default): SELECT count(*) AS `count` FROM `Comments` AS `Comment`;
+20:44:13 web.1  | [90mGET /quizes/statistics [36m304 [90m51ms[0m
+20:44:13 web.1  | Possibly unhandled ReferenceError: comentariosTotales is not defined
+20:44:13 web.1  |     at /var/www/quiz/controllers/statistics_controller.js:21:16
+20:44:13 web.1  |     at tryCatch1 (/var/www/quiz/node_modules/sequelize/node_modules/bluebird/js/main/util.js:45:21)
+20:44:13 web.1  |     at Promise$_callHandler [as _callHandler] (/var/www/quiz/node_modules/sequelize/node_modules/bluebird/js/main/promise.js:660:13)
+20:44:13 web.1  |     at Promise$_settlePromiseFromHandler [as _settlePromiseFromHandler] (/var/www/quiz/node_modules/sequelize/node_modules/bluebird/js/main/promise.js:675:18)
+20:44:13 web.1  |     at Promise$_settlePromiseAt (/var/www/quiz/node_modules/sequelize/node_modules/bluebird/js/main/promise.js:845:14)
+20:44:13 web.1  |     at Promise._settlePromiseAt (/var/www/quiz/node_modules/sequelize/lib/promise.js:66:18)
+20:44:13 web.1  |     at Promise$_settlePromises [as _settlePromises] (/var/www/quiz/node_modules/sequelize/node_modules/bluebird/js/main/promise.js:988:14)
+20:44:13 web.1  |     at Async$_consumeFunctionBuffer [as _consumeFunctionBuffer] (/var/www/quiz/node_modules/sequelize/node_modules/bluebird/js/main/async.js:77:12)
+20:44:13 web.1  |     at Async$consumeFunctionBuffer (/var/www/quiz/node_modules/sequelize/node_modules/bluebird/js/main/async.js:40:14)
+20:44:13 web.1  |     at process._tickCallback (node.js:415:13)
+20:44:13 web.1  | [90mGET /stylesheets/style.css [36m304 [90m13ms[0m
+20:44:13 web.1  | [90mGET /stylesheets/wide.css [36m304 [90m14ms[0m
+20:44:13 web.1  | [90mGET /stylesheets/smartphone.css [36m304 [90m14ms[0m
+SIGINT received
+20:44:17 system | sending SIGTERM to all processes
+20:44:17 web.1  | exited with code 130
